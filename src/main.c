@@ -10,7 +10,6 @@
 int main(int argc, char* argv[])
 {
     int swaps, arraySize, reducedSize;
-    int maxSize = 100;
     int from = INT_MIN;
 
     int to = INT_MAX;
@@ -129,7 +128,7 @@ int parseInput(int* arr)
                 printf("ERROR: Entered number too large.");
                 exit(-5);
             }
-            scanf_s("%c", &c[j]);
+            scanf("%c", &c[j]);
             if (c[j] == '\n')
             {
                 c[j] = '\0';
