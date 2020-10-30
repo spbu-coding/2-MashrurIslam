@@ -14,21 +14,21 @@ int main(int argc, char* argv[])
     int from = INT_MIN;
 
     int to = INT_MAX;
-    int numArray[maxSize];
+    int numArray[100];
     parseArgs(argc, argv, &from, &to);
 
     arraySize = parseInput(numArray);
 
-    int copiedArray[arraySize];
+    int copiedArray[100];
 
     copyArray(copiedArray, numArray, arraySize);
     reducedSize = reducedArraySize(copiedArray, from, to, arraySize);
 
-    int reducedArray[reducedSize];
+    int reducedArray[100];
 
     reduceArray(copiedArray, reducedArray, from, to, arraySize);
 
-    int sortedArray[reducedSize];
+    int sortedArray[100];
     copyArray(sortedArray, reducedArray, reducedSize);
 
     sort(sortedArray, reducedSize);
@@ -51,12 +51,14 @@ void parseArgs(int argc, char* argv[], int* from, int* to)
     {
         printf("ERROR: Less than one parameter provided.");
         exit(-1);
+        system("pause");
     }
 
     if (argc > 3)
     {
         printf("ERROR: More than two parameters provided.");
         exit(-2);
+        system("pause");
     }
 
     for (i = 1; i < argc; i++)
@@ -127,7 +129,7 @@ int parseInput(int* arr)
                 printf("ERROR: Entered number too large.");
                 exit(-5);
             }
-            scanf("%c", &c[j]);
+            scanf_s("%c", &c[j]);
             if (c[j] == '\n')
             {
                 c[j] = '\0';
